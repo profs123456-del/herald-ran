@@ -581,7 +581,7 @@ if(b.name.includes("SPONGE")){
    card.style.backgroundImage = "url('crimson.png')";
  }
 if(b.name.includes("ASTRAL SWORDSMAN")){
-   card.style.backgroundImage = "url('astral.png')";
+   card.style.backgroundImage = "url('astral rework.png')";
  }
 if(b.name.includes("DARK ART AGENT")){
    card.style.backgroundImage = "url('daa.png')";
@@ -606,8 +606,12 @@ if(b.name.includes("GM RH")){
 
   <div class="calendar-panel">
     <div class="calendar-display">Select Date & Time</div>
-    <input type="datetime-local" class="datetime-input" id="${b.id}-input">
-  </div>
+    <input
+    type="datetime-local"
+    class="datetime-input"
+    id="${b.id}-input"
+    step="1">
+</div>
 
   <button class="set-manual" onclick="manual('${b.id}',${b.respawn})">Set Manual</button>
   <button class="killed-now" onclick="now('${b.id}',${b.respawn})">Killed Now</button>
