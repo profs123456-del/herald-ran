@@ -20,13 +20,25 @@
 *{box-sizing:border-box}
 
 body{
-  margin:0;
-  background:#0b0b0b;
-  color:var(--gold);
-  font-family:'Rajdhani', sans-serif;
-  padding:40px 40px 40px 300px;
-}
+    margin:0;
+    color:var(--gold);
+    font-family:'Rajdhani',sans-serif;
 
+    min-height:100vh;
+
+    background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.55)),
+        url("herald-banner.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    padding:35px 35px 35px 300px;
+
+    overflow-x:hidden;
+}
 /* TITLE */
 h1{
   text-align:center;
@@ -112,29 +124,47 @@ h1{
 
 /* GRID */
 .container{
- display:flex;
- flex-wrap:wrap;
- gap:22px;
- justify-content:center;
+display:flex;
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:28px;
+
+padding-bottom:60px;
 }
 
 /* CARDS */
 .card{
- background:#111;
- border:2px solid var(--gold);
- border-radius:16px;
- padding:18px;
- width:300px;
- text-align:center;
- transition:.25s;
- position:relative;
- box-shadow:0 0 15px rgba(0,0,0,.6);
-}
+    width:300px;
 
+    border-radius:18px;
+
+    border:1px solid rgba(255,215,0,.7);
+
+    background:rgba(20,20,20,.35);
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.5),
+        0 0 12px rgba(255,215,0,.25);
+
+    overflow:hidden;
+
+    transition:.25s;
+}
 /* Card hover */
 .card:hover{
- transform:translateY(-6px) scale(1.01);
- box-shadow:0 0 30px rgba(0,255,255,.35);
+    transform:translateY(-8px) scale(1.03);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.6),
+        0 0 25px cyan;
+
+    border-color:#00ffff;
 }
 
 .card.next{
@@ -375,7 +405,33 @@ button:hover{
   background-repeat: no-repeat;
   position: relative;
 }
+body::before{
+    content:"";
 
+    position:fixed;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,0,80,.18),transparent 35%),
+    radial-gradient(circle at 80% 80%,rgba(0,255,255,.15),transparent 35%);
+
+    pointer-events:none;
+
+    animation:bgMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove{
+
+0%{
+transform:translate(0,0);
+}
+
+100%{
+transform:translate(-40px,-20px);
+}
+
+}
 </style>
 </head>
 
@@ -389,14 +445,6 @@ button:hover{
  <div id="nextBossTimer">--:--:--</div>
  <div id="nextBossTime">---</div>
 </div>
-<div style="
-  background-image: url('herald-banner.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 200px;
-  padding: 10px;
-">
 <h1>BOSS TRACKER</h1>
 
 <!-- ✅ KILL HISTORY PANEL -->
